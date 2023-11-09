@@ -1,0 +1,110 @@
+
+  <app-nav-bar></app-nav-bar>
+    <!-- Go button -->
+  <div class="bg-[#0A134F] w-screen h-screen flex flex-col">
+    <div class="mt-28 bg-[#0A134F] h-full pl-[137px] pr-[137px]">
+      <div class="flex items-center justify-center gap-20 w-full bg-[#0A1343] p-8 rounded-md">
+        <div class="w-28 h-28 lex flex flex-col items-center justify-center text-2xl text-white rounded-full bg-[#0042E4] shadow-lg">
+          <h1>{{deviceCount$ | async}}</h1>
+          <p class="text-sm">Total Device</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 lex flex items-center justify-center text-2xl text-white rounded-full bg-[#0042E4] shadow-lg">{{softwareCount$ | async}}</div>
+          <p class="mt-2 text-gray-500">Total Software</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 lex flex items-center justify-center text-2xl text-white rounded-full bg-[#0042E4] shadow-lg">{{hardwareCount$ | async}}</div>
+          <p class="mt-2 text-gray-500">Total Hardware</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 lex flex items-center justify-center text-2xl text-white rounded-full bg-[#0042E4] shadow-lg">{{osCount$ | async}}</div>
+          <p class="mt-2 text-gray-500">Total Os</p>
+        </div>
+        <div (click)="isClickEnabled &&scanNow()" class="relative flex items-center justify-center text-2xl text-white rounded-full w-28 h-28 bg-gradient-to-r from-cyan-500 to-blue-500 hover:cursor-pointer">Go
+          <span *ngIf="!isClickEnabled" class="absolute inline-flex w-16 h-16 rounded-full opacity-75 bg-gradient-to-r from-cyan-500 to-blue-500 animate-ping hover:animate-none"></span>
+        </div>
+      </div>
+    
+      <div class="flex flex-col items-center w-auto p-8 mt-5 bg-[#0A1343] rounded-md">
+        <div class="flex justify-center w-full h-auto gap-5">
+          <div class="flex justify-center h-auto gap-5">
+            <div class="w-[300px] h-[460px] flex flex-col items-center">
+              <h4 class="pb-4 text-2xl text-gray-500">Identify Threats</h4>
+              <div
+                class="w-[100%] h-[460px] border border-gray-700 rounded-md p-4 overflow-y-scroll scrollbar-hide"
+              >
+                <div
+                  *ngFor="let threat of identify_threats; let i = index"
+                  class="p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50"
+                >
+                  <h3 class="text-lg">{{ threat.name}}<sup>{{threat.platform}}</sup></h3>
+                  <p class="text-sm">{{ threat.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-[300px] h-[460px] flex flex-col items-center">
+              <h4 class="pb-4 text-2xl text-gray-500">Check Threat Relevance</h4>
+              <div
+                class="w-[100%] h-[460px] border border-gray-700 rounded-md p-4 overflow-y-scroll scrollbar-hide"
+              >
+                <div
+                  *ngFor="let threat of check_threat_relevance; let i = index"
+                  class="p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50"
+                >
+                <h3 class="text-lg">{{ threat.name}}<sup>{{threat.platform}}</sup></h3>
+                <p class="text-sm">{{ threat.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div cdkDropListGroup [cdkDropListGroupDisabled]="!isAnalysis" class="flex justify-center h-auto gap-5">
+            <div class="w-[300px] h-[460px] flex flex-col items-center">
+              <h4 class="pb-4 text-2xl text-gray-500">Relevant Threats</h4>
+              <div
+                cdkDropList
+                [cdkDropListData]="relevant_threats"
+                (cdkDropListDropped)="drop($event)"
+                class="w-[100%] h-[460px] border border-gray-700 rounded-md p-4 overflow-y-scroll scrollbar-hide"
+              >
+                <div
+                  *ngFor="let threat of relevant_threats; let i = index"
+                  cdkDrag
+                  class="p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50"
+                >
+                <h3 class="text-lg">{{ threat.name}}<sup>{{threat.platform}}</sup></h3>
+                <p class="text-sm">{{ threat.description}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="w-[300px] h-[460px] flex flex-col items-center">
+              <h4 class="pb-4 text-2xl text-gray-500">Threat Clearance</h4>
+              <div
+                cdkDropList
+                [cdkDropListData]="threat_clearance"
+                (cdkDropListDropped)="drop($event)"
+                class="w-[100%] h-[460px] border border-gray-700 rounded-md p-4 overflow-y-scroll scrollbar-hide"
+              >
+                <div
+                  *ngFor="let threat of threat_clearance; let i = index"
+                  cdkDrag
+                  class="p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50"
+                >
+                <h3 class="text-lg">{{ threat.name}}<sup>{{threat.platform}}</sup></h3>
+                <p class="text-sm">{{ threat.description}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-2 mt-5 flex justify-center bg-[#0A1343] rounded-md">
+        <ul class="flex gap-10">
+          <li class="text-gray-500">Identify Threats: <span>{{identify_threats.length}}</span> </li>
+          <li class="text-gray-500">Check Threat Relevance: <span>{{check_threat_relevance.length}}</span> </li>
+          <li class="text-gray-500">Relevant Threats: <span>{{relevant_threats.length}}</span> </li>
+          <li class="text-gray-500">Threat Clearance: <span>{{threat_clearance.length}}</span> </li>
+        </ul>
+      </div>
+    </div>
+  </div>

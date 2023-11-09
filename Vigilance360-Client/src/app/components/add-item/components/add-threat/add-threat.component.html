@@ -1,0 +1,1326 @@
+<div
+  id="staticModal"
+  data-modal-backdrop="static"
+  tabindex="-1"
+  aria-hidden="true"
+  class="flex justify-between absolute top-0 left-1/2 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <!-- Modal content -->
+  <div class="w-1/3">
+    <div class="h-auto text-white w-full bg-[#0A134F] rounded-lg p-4">
+      <h1 class="mb-4 text-center">Add Software Threat</h1>
+      <form
+        [formGroup]="addSoftwareThreatForm"
+        (ngSubmit)="addSoftwareThreat()"
+      >
+        <!-- <div class="grid gap-6 mb-1"></div> -->
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="name" class="block text-sm font-medium text-white"
+              >Name</label
+            >
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('name')?.invalid &&
+                addSoftwareThreatForm.get('name')?.touched
+              "
+            >
+              Name requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div class="w-60">
+            <label for="publisher" class="block text-sm font-medium text-white"
+              >Publisher</label
+            >
+            <input
+              formControlName="publisher"
+              type="text"
+              id="publisher"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('publisher')?.invalid &&
+                addSoftwareThreatForm.get('publisher')?.touched
+              "
+            >
+              Publisher requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div class="w-40">
+            <label for="version" class="block text-sm font-medium text-white"
+              >Version</label
+            >
+            <input
+              formControlName="version"
+              type="text"
+              id="version"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('version')?.invalid &&
+                addSoftwareThreatForm.get('version')?.touched
+              "
+            >
+              Version requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="affected1" class="block text-sm font-medium text-white"
+              >Afected</label
+            >
+            <input
+              formControlName="affected1"
+              type="text"
+              id="affected1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('affected1')?.invalid &&
+                addSoftwareThreatForm.get('affected1')?.touched
+              "
+            >
+              Afected requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected2"
+              type="text"
+              id="affected2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected3"
+              type="text"
+              id="affected3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected4"
+              type="text"
+              id="affected4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected5"
+              type="text"
+              id="affected5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="overview" class="block text-sm font-medium text-white"
+              >Overview</label
+            >
+            <input
+              formControlName="overview"
+              type="text"
+              id="overview"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('overview')?.invalid &&
+                addSoftwareThreatForm.get('overview')?.touched
+              "
+            >
+              Overview requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-medium text-white"
+              >Description</label
+            >
+            <input
+              formControlName="description"
+              type="text"
+              id="description"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('description')?.invalid &&
+                addSoftwareThreatForm.get('description')?.touched
+              "
+            >
+              Description requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="impact1" class="block text-sm font-medium text-white"
+              >Impact</label
+            >
+            <input
+              formControlName="impact1"
+              type="text"
+              id="impact1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('impact1')?.invalid &&
+                addSoftwareThreatForm.get('impact1')?.touched
+              "
+            >
+              Impact requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact2"
+              type="text"
+              id="impact2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact3"
+              type="text"
+              id="impact3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact4"
+              type="text"
+              id="impact4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact5"
+              type="text"
+              id="impact5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="solution1" class="block text-sm font-medium text-white"
+              >Solution</label
+            >
+            <input
+              formControlName="solution1"
+              type="text"
+              id="solution1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('solution1')?.invalid &&
+                addSoftwareThreatForm.get('solution1')?.touched
+              "
+            >
+              Solution requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution2"
+              type="text"
+              id="solution2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution3"
+              type="text"
+              id="solution3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution4"
+              type="text"
+              id="solution4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution5"
+              type="text"
+              id="solution5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="reference1" class="block text-sm font-medium text-white"
+              >Reference</label
+            >
+            <input
+              formControlName="reference1"
+              type="text"
+              id="reference1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('reference1')?.invalid &&
+                addSoftwareThreatForm.get('reference1')?.touched
+              "
+            >
+              Version requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference2"
+              type="text"
+              id="reference2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference3"
+              type="text"
+              id="reference3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference4"
+              type="text"
+              id="reference4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference5"
+              type="text"
+              id="reference5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="disclaimer" class="block text-sm font-medium text-white"
+              >Disclaimer</label
+            >
+            <input
+              formControlName="disclaimer"
+              type="text"
+              id="disclaimer"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addSoftwareThreatForm.get('disclaimer')?.invalid &&
+                addSoftwareThreatForm.get('disclaimer')?.touched
+              "
+            >
+              disclaimer requird!
+            </p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-right">
+          <button
+            (click)="clearSoftwareInfo()"
+            type="button"
+            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          >
+            Clear
+          </button>
+          <button
+            [disabled]="addSoftwareThreatForm.invalid"
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Add Software Threat
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal content -->
+  <div class="w-1/3 ml-1 mr-1">
+    <div class="h-auto text-white w-full bg-[#0A134F] rounded-lg p-4">
+      <h1 class="mb-4 text-center">Add Hardware Threat</h1>
+      <form
+        [formGroup]="addHardwareThreatForm"
+        (ngSubmit)="addHardwareThreat()"
+      >
+        <!-- <div class="grid gap-6 mb-1"></div> -->
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="name" class="block text-sm font-medium text-white"
+              >Name</label
+            >
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('name')?.invalid &&
+                addHardwareThreatForm.get('name')?.touched
+              "
+            >
+              Name requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div class="w-60">
+            <label for="model" class="block text-sm font-medium text-white"
+              >model</label
+            >
+            <input
+              formControlName="model"
+              type="text"
+              id="model"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('model')?.invalid &&
+                addHardwareThreatForm.get('model')?.touched
+              "
+            >
+              Model requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div class="w-40">
+            <label for="version" class="block text-sm font-medium text-white"
+              >Version</label
+            >
+            <input
+              formControlName="version"
+              type="text"
+              id="version"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('version')?.invalid &&
+                addHardwareThreatForm.get('version')?.touched
+              "
+            >
+              Version requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="affected1" class="block text-sm font-medium text-white"
+              >Afected</label
+            >
+            <input
+              formControlName="affected1"
+              type="text"
+              id="affected1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('affected1')?.invalid &&
+                addHardwareThreatForm.get('affected1')?.touched
+              "
+            >
+              Afected requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected2"
+              type="text"
+              id="affected2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected3"
+              type="text"
+              id="affected3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected4"
+              type="text"
+              id="affected4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected5"
+              type="text"
+              id="affected5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="overview" class="block text-sm font-medium text-white"
+              >Overview</label
+            >
+            <input
+              formControlName="overview"
+              type="text"
+              id="overview"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('overview')?.invalid &&
+                addHardwareThreatForm.get('overview')?.touched
+              "
+            >
+              Overview requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-medium text-white"
+              >Description</label
+            >
+            <input
+              formControlName="description"
+              type="text"
+              id="description"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('description')?.invalid &&
+                addHardwareThreatForm.get('description')?.touched
+              "
+            >
+              Description requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="impact1" class="block text-sm font-medium text-white"
+              >Impact</label
+            >
+            <input
+              formControlName="impact1"
+              type="text"
+              id="impact1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('impact1')?.invalid &&
+                addHardwareThreatForm.get('impact1')?.touched
+              "
+            >
+              Impact requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact2"
+              type="text"
+              id="impact2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact3"
+              type="text"
+              id="impact3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact4"
+              type="text"
+              id="impact4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact5"
+              type="text"
+              id="impact5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="solution1" class="block text-sm font-medium text-white"
+              >Solution</label
+            >
+            <input
+              formControlName="solution1"
+              type="text"
+              id="solution1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('solution1')?.invalid &&
+                addHardwareThreatForm.get('solution1')?.touched
+              "
+            >
+              Solution requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution2"
+              type="text"
+              id="solution2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution3"
+              type="text"
+              id="solution3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution4"
+              type="text"
+              id="solution4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution5"
+              type="text"
+              id="solution5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="reference1" class="block text-sm font-medium text-white"
+              >Reference</label
+            >
+            <input
+              formControlName="reference1"
+              type="text"
+              id="reference1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('reference1')?.invalid &&
+                addHardwareThreatForm.get('reference1')?.touched
+              "
+            >
+              Reference requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference2"
+              type="text"
+              id="reference2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference3"
+              type="text"
+              id="reference3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference4"
+              type="text"
+              id="reference4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference5"
+              type="text"
+              id="reference5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="disclaimer" class="block text-sm font-medium text-white"
+              >Disclaimer</label
+            >
+            <input
+              formControlName="disclaimer"
+              type="text"
+              id="disclaimer"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addHardwareThreatForm.get('disclaimer')?.invalid &&
+                addHardwareThreatForm.get('disclaimer')?.touched
+              "
+            >
+              disclaimer requird!
+            </p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-right">
+          <button
+            (click)="clearHardwareInfo()"
+            type="button"
+            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          >
+            Clear
+          </button>
+          <button
+            [disabled]="addHardwareThreatForm.invalid"
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Add Hardware Threat
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal content -->
+  <div class="w-1/3">
+    <div class="h-auto text-white w-full bg-[#0A134F] rounded-lg p-4">
+      <h1 class="mb-4 text-center">Add OS Threat</h1>
+      <form [formGroup]="addOsThreatForm" (ngSubmit)="addOsThreat()">
+        <!-- <div class="grid gap-6 mb-1"></div> -->
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="name" class="block text-sm font-medium text-white"
+              >Name</label
+            >
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('name')?.invalid &&
+                addOsThreatForm.get('name')?.touched
+              "
+            >
+              Name requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div class="w-40">
+            <label for="version" class="block text-sm font-medium text-white"
+              >Version</label
+            >
+            <input
+              formControlName="version"
+              type="text"
+              id="version"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('version')?.invalid &&
+                addOsThreatForm.get('version')?.touched
+              "
+            >
+              Version requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="affected1" class="block text-sm font-medium text-white"
+              >Afected</label
+            >
+            <input
+              formControlName="affected1"
+              type="text"
+              id="affected1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('affected1')?.invalid &&
+                addOsThreatForm.get('affected1')?.touched
+              "
+            >
+              Afected requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected2"
+              type="text"
+              id="affected2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected3"
+              type="text"
+              id="affected3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected4"
+              type="text"
+              id="affected4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="affected5"
+              type="text"
+              id="affected5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="overview" class="block text-sm font-medium text-white"
+              >Overview</label
+            >
+            <input
+              formControlName="overview"
+              type="text"
+              id="overview"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('overview')?.invalid &&
+                addOsThreatForm.get('overview')?.touched
+              "
+            >
+              Overview requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label
+              for="description"
+              class="block text-sm font-medium text-white"
+              >Description</label
+            >
+            <input
+              formControlName="description"
+              type="text"
+              id="description"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('description')?.invalid &&
+                addOsThreatForm.get('description')?.touched
+              "
+            >
+              Description requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="impact1" class="block text-sm font-medium text-white"
+              >Impact</label
+            >
+            <input
+              formControlName="impact1"
+              type="text"
+              id="impact1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('impact1')?.invalid &&
+                addOsThreatForm.get('impact1')?.touched
+              "
+            >
+              Impact requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact2"
+              type="text"
+              id="impact2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact3"
+              type="text"
+              id="impact3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact4"
+              type="text"
+              id="impact4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="impact5"
+              type="text"
+              id="impact5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="solution1" class="block text-sm font-medium text-white"
+              >Solution</label
+            >
+            <input
+              formControlName="solution1"
+              type="text"
+              id="solution1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('solution1')?.invalid &&
+                addOsThreatForm.get('solution1')?.touched
+              "
+            >
+              Solution requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution2"
+              type="text"
+              id="solution2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution3"
+              type="text"
+              id="solution3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution4"
+              type="text"
+              id="solution4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="solution5"
+              type="text"
+              id="solution5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="reference1" class="block text-sm font-medium text-white"
+              >Reference</label
+            >
+            <input
+              formControlName="reference1"
+              type="text"
+              id="reference1"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('reference1')?.invalid &&
+                addOsThreatForm.get('reference1')?.touched
+              "
+            >
+              Version requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference2"
+              type="text"
+              id="reference2"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference3"
+              type="text"
+              id="reference3"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference4"
+              type="text"
+              id="reference4"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-6 mb-1">
+          <div>
+            <input
+              formControlName="reference5"
+              type="text"
+              id="reference5"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+            />
+          </div>
+        </div>
+
+        <div class="grid gap-6 mb-1">
+          <div>
+            <label for="disclaimer" class="block text-sm font-medium text-white"
+              >Disclaimer</label
+            >
+            <input
+              formControlName="disclaimer"
+              type="text"
+              id="disclaimer"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder=""
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                addOsThreatForm.get('disclaimer')?.invalid &&
+                addOsThreatForm.get('disclaimer')?.touched
+              "
+            >
+              Disclaimer requird!
+            </p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-right">
+          <button
+            (click)="clearOsInfo()"
+            type="button"
+            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          >
+            Close
+          </button>
+          <button
+            [disabled]="addOsThreatForm.invalid"
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Add Os Threat
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

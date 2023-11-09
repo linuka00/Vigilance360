@@ -1,0 +1,131 @@
+<p *ngIf="authService.currentUser.email_verified">Admin</p>
+<p>User</p>
+
+<div class="flex">
+  <div class="flex flex-col items-center">
+    <div class="w-[300px] border p-3 m-4">
+      <form [formGroup]="userForm" (ngSubmit)="addUser()">
+        <div class="grid gap-6 mb-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-900"
+              >Name</label
+            >
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="John"
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                userForm.get('name')?.invalid && userForm.get('name')?.touched
+              "
+            >
+              User name requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-900"
+              >Email</label
+            >
+            <input
+              formControlName="email"
+              type="email"
+              id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="john@gmail.com"
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                userForm.get('email')?.invalid && userForm.get('email')?.touched
+              "
+            >
+              User name requird!
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-6 mb-6">
+          <div>
+            <label for="mobile" class="block text-sm font-medium text-gray-900"
+              >Moblie</label
+            >
+            <input
+              formControlName="mobile"
+              type="number"
+              id="mobile"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="076"
+              required
+            />
+            <p
+              class="text-red-500"
+              *ngIf="
+                userForm.get('mobile')?.invalid &&
+                userForm.get('mobile')?.touched
+              "
+            >
+              User name requird!
+            </p>
+          </div>
+        </div>
+        <button
+          [disabled]="userForm.invalid"
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="relative m-4 overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">Name</th>
+          <th scope="col" class="px-6 py-3">Email</th>
+          <th scope="col" class="px-6 py-3">Mobile</th>
+          <th scope="col" class="px-6 py-3">Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let user of users"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+        >
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            {{ user.name }}
+          </th>
+          <td class="px-6 py-4">
+            {{ user.email }}
+          </td>
+          <td class="px-6 py-4">
+            {{ user.mobile }}
+          </td>
+          <td class="px-6 py-4">
+            <button (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="m-4">
+    <button class="p-2 bg-yellow-400 border rounded-md" (click)="logoutUser()">
+      LogOut
+    </button>
+  </div>
+</div>

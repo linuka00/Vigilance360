@@ -1,0 +1,147 @@
+<div class="absolute z-[100]">
+  <app-nav-bar></app-nav-bar>
+</div>
+<div class="flex flex-col w-screen h-screen bg-[#0A134F]">
+  <aside
+    id="default-sidebar"
+    class="fixed left-0 z-40 w-64 h-full transition-transform -translate-x-full top-28 sm:translate-x-0"
+    aria-label="Sidebar"
+  >
+    <div class="h-full px-3 py-4 overflow-y-auto bg-[#0A134F]">
+      <ul class="space-y-2 font-medium">
+        <li>
+          <a
+            routerLinkActive="bg-gray-700"
+            routerLink="device/"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/EBEBEB/server-video.png"
+              alt="server-video"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Device</span>
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >{{ deviceCount$ | async }}</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            routerLinkActive="bg-gray-700"
+            routerLink="software/"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/25/EBEBEB/software-box.png"
+              alt="software-box"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Software</span>
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >{{ softwareCount$ | async }}</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            routerLinkActive="bg-gray-700"
+            routerLink="hardware/"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/EBEBEB/delete-key.png"
+              alt="delete-key"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Hardware</span>
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >{{ hardwareCount$ | async }}</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            routerLinkActive="bg-gray-700"
+            routerLink="os/"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/25/EBEBEB/operating-system.png"
+              alt="operating-system"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Os</span>
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >{{ osCount$ | async }}</span
+            >
+          </a>
+        </li>
+        <li *ngIf="authService.isAnalysis()">
+          <a
+            routerLinkActive="bg-gray-700"
+            routerLink="resources/"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/external-smashingstocks-mixed-smashing-stocks/33/ebebeb/external-Resource-human-resources-smashingstocks-mixed-smashing-stocks.png"
+              alt="operating-system"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Resources</span>
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >{{ urlsCount }}</span
+            >
+          </a>
+        </li>
+        <li *ngIf="authService.isAnalysis()">
+          <a
+            routerLinkActive="bg-gray-700"
+            routerLink="notification/"
+            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-filled/50/ebebeb/appointment-reminders.png"
+              alt="appointment-reminders"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Notification</span>
+            <span
+              class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300"
+              >{{ notifications }}</span
+            >
+          </a>
+        </li>
+        <li>
+          <a
+            (click)="isClickEnabled && scanNow()"
+            routerLink="/test"
+            class="flex items-center p-2 mt-10 text-gray-900 bg-green-700 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            <img
+              width="40"
+              height="40"
+              src="https://img.icons8.com/ios-filled/50/EBEBEB/search--v1.png"
+              alt="search--v1"
+            />
+            <span class="flex-1 ml-3 whitespace-nowrap">Scan Now</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <div class="relative mt-28 flex-1 p-4 bg-[#0A1343] sm:ml-64 overflow-x-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

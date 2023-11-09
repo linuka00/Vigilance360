@@ -1,0 +1,107 @@
+<div class="w-full h-full">
+  <!-- Modal toggle -->
+  <button
+    (click)="toggleModal()"
+    class="mb-2 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    type="button"
+  >
+    + Url
+  </button>
+  <!-- Main modal -->
+  <div
+    [class.hidden]="!showModal"
+    id="staticModal"
+    data-modal-backdrop="static"
+    tabindex="-1"
+    aria-hidden="true"
+    class="absolute top-0 left-1/2 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+  >
+    <!-- Modal content -->
+    <div>
+      <div class="h-auto text-white w-80 bg-[#0A134F] rounded-lg p-4">
+        <h1 class="mb-4 text-center">Add Resource</h1>
+        <form [formGroup]="addResourceForm" (ngSubmit)="addUrl()">
+          <div class="grid gap-6 mb-1">
+            <div>
+              <label for="name" class="block text-sm font-medium text-white"
+                >Url</label
+              >
+              <input
+                formControlName="url"
+                type="text"
+                id="url"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="adobe photoshop"
+                required
+              />
+              <p
+                class="text-red-500"
+                *ngIf="
+                  addResourceForm.get('url')?.invalid &&
+                  addResourceForm.get('url')?.touched
+                "
+              >
+                Url requird!
+              </p>
+            </div>
+          </div>
+          <p class="mt-4 text-right">
+            <button
+              (click)="close()"
+              type="button"
+              class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+            >
+              Close
+            </button>
+            <button
+              [disabled]="addResourceForm.invalid"
+              [innerText]="buttonText"
+              type="submit"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Add Url
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="relative flex-auto overflow-x-auto">
+    <table class="w-full text-sm text-left text-white">
+      <thead class="text-xs uppercase bg-[#0A134F]">
+        <tr>
+          <th scope="col" class="px-6 py-3">Url</th>
+          <th scope="col" class="px-6 py-3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of urls$ | async" class="bg-[#0A1343] border-b">
+          <td
+            scope="row"
+            class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            {{ s.payload.doc.data().url }}
+          </td>
+          <td class="px-6 py-4">
+            <svg
+              (click)="deleteUrl(s.payload.doc.id)"
+              fill="none"
+              class="w-6 h-6 text-red-600 cursor-pointer"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+              ></path>
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

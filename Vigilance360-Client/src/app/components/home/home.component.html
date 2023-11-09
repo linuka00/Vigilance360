@@ -1,0 +1,37 @@
+<app-nav-bar></app-nav-bar>
+<div
+  class="w-screen h-screen border-spacing-5 bg-cover bg-no-repeat bg-[url('/assets/background.jpg')]"
+>
+  <div class="flex flex-col w-screen h-screen">
+    <!-- body -->
+    <div class="flex items-center flex-1 pl-[137px] pr-[137px]">
+      <div class="w-auto text-white">
+        <h1 class="text-[100px] leading-none font-extrabold cursor-default">
+          Protection <br />
+          For Everyone
+        </h1>
+
+        <button
+          *ngIf="!isScan; else scan"
+          routerLink="/add"
+          class="text-white text-[20px] bg-[#0042E4] pt-[10px] pb-[10px] pl-[33px] pr-[33px] rounded-full mt-[62px] mr-4 border border-[#0042E4] hover:border-[#00D9FC]"
+        >
+          Get Started
+        </button>
+        <ng-template #scan>
+          <button
+            routerLink="/test"
+            class="text-white text-[20px] bg-[#0042E4] pt-[10px] pb-[10px] pl-[33px] pr-[33px] rounded-full mt-[62px] mr-4 border border-[#0042E4] hover:border-[#00D9FC]"
+          >
+            Scan Now
+          </button>
+        </ng-template>
+        <button
+          class="text-white text-[20px] pt-[10px] pb-[10px] pl-[33px] pr-[33px] rounded-full mt-[62px] ml-4 border hover:border-[#00D9FC]"
+        >
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
